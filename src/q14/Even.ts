@@ -1,9 +1,15 @@
-const n = Number(process.argv[2])
-if (!Number.isInteger(n) || n < 0) {
+const arg = process.argv[2]
+const n = Number(arg)
+
+if (!arg || isNaN(n)) {
   process.exit(0)
 }
+
+let output: string[] = []
 for (let i = 0; i <= n; i++) {
   if (i % 2 === 0) {
-    console.log(i)
+    output.push(i.toString())
   }
 }
+
+process.stdout.write(output.join("\n"))
